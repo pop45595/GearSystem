@@ -13,9 +13,9 @@ namespace GearSystem
         public Knife()
         {            
             m_arrState = new IState[] {
-                new State(eGearState.攻擊力, 100),
-                new State(eGearState.爆擊傷害, 300),
-                new State(eGearState.移動速度, -50)
+                new State(State.e狀態效果.基礎攻擊, 100),
+                new State(State.e狀態效果.基礎爆擊傷害, 300),
+                new State(State.e狀態效果.基礎移動速度, -50)
             };
         }
 
