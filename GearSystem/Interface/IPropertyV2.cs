@@ -18,6 +18,7 @@ namespace GearSystem
         bool 設爆擊傷害(int _iValue);
         bool 設格檔值(int _iValue);
         bool 設金幣拾取量(int _iValue);
+        void reset();
         IPropertyV2 copy();
     }
 }

@@ -45,7 +45,6 @@ namespace GearSystem
         {   //update
             m_Property.reset();
             m_FirstState.changeValue(ref m_Property);
-            changeSpecialValue();
             if(null!= m_updateCallback)
             {
                 m_updateCallback();
@@ -88,22 +87,6 @@ namespace GearSystem
                 m_ListState[i].setNextState(m_ListState[i+1]);
             }
             m_FirstState = m_ListState[0];
-        }
-
-        private void changeSpecialValue()
-        {
-            changeSpecifyValue(eGearState.攻擊力加乘,eGearState.攻擊力);
-            changeSpecifyValue(eGearState.防禦力加乘, eGearState.防禦力);
-            changeSpecifyValue(eGearState.血量加乘, eGearState.最大血量);
-            changeSpecifyValue(eGearState.魔量加乘, eGearState.最大魔量);
-        }
-
-        private void changeSpecifyValue(eGearState _beChangeState , eGearState _changeState)
-        {
-            double dChangeValue = m_Property.getPropertyValue<double>(_beChangeState);
-            double dValue = m_Property.getPropertyValue<double>(_changeState);
-            dValue = dValue + dValue * (dChangeValue / 100);
-            m_Property.setPropertyValue<double>(_changeState, dValue);
         }
     }
 }
