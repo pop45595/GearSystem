@@ -368,5 +368,10 @@ namespace GearSystem
 
             return true;
         }
+
+        public void reset()
+        {
+            m_Hashtable = new Hashtable();
+        }
     }
 }
