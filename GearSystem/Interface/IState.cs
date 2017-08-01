@@ -7,5 +7,6 @@ namespace GearSystem
         void setNextState(IState _state);
         bool changeValue(ref IPropertyV2 _Property);
         void setUpdateCallBack(UpdateStateCallback _updateCallback);
+        int getLevel();
     }
 }
