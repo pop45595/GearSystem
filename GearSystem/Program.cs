@@ -27,7 +27,7 @@ class Program
             Console.WriteLine("爆擊率 : " + lolProperty.取爆擊率());
             Console.WriteLine("爆擊傷害 : " + lolProperty.取爆擊傷害());
             Console.WriteLine("格檔值 : " + lolProperty.取格檔值());
-            Console.WriteLine("金幣拾取量 : " + lolProperty.取金幣拾取量());ㄋW
+            Console.WriteLine("金幣拾取量 : " + lolProperty.取金幣拾取量());
         });
         lolChractor.addGear(GearFactory.createFactory(eGearType.小刀,new IState[] {new State(State.e狀態效果.基礎攻擊,15)}));
 
