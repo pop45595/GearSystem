@@ -22,6 +22,7 @@ namespace GearSystem
 
     public interface IProperty
     {
-        void setValue(e狀態名 _eKey , int _iValue);
+        void setValue(e狀態名 _eKey ,int _iValue);
+        void setValue(e狀態名 _eKey, float _fValue);
     }
 }
