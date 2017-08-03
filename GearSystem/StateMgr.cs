@@ -9,7 +9,7 @@ namespace GearSystem
         private IGear[] m_ArrGear = null;
         private List<IState> m_ListState = null;
         private IState m_FirstState = null;
-        private updateCallback m_updateCallback = null;
+        private reflashCallback m_updateCallback = null;
 
         public StateMgr(IPropertyV2 _Property , int _iCount)
         {
@@ -43,7 +43,6 @@ namespace GearSystem
 
         public void updateProprety()
         {   //update
-            m_Property.reset();
             m_FirstState.changeValue(ref m_Property);
             if(null!= m_updateCallback)
             {
@@ -51,7 +50,7 @@ namespace GearSystem
             }
         }
 
-        public void setUpdateCallback(updateCallback _updateCallback)
+        public void setReflashCallback(reflashCallback _updateCallback)
         {
             m_updateCallback = _updateCallback;
         }
@@ -87,6 +86,11 @@ namespace GearSystem
                 m_ListState[i].setNextState(m_ListState[i+1]);
             }
             m_FirstState = m_ListState[0];
+        }
+
+        public IProperty getProperty()
+        {
+            throw new NotImplementedException();
         }
     }
 }
