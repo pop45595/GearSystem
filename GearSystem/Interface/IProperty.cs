@@ -1,22 +1,28 @@
 ﻿
 namespace GearSystem
 {
+    public enum e狀態名
+    {
+        攻擊,
+        攻擊力加乘,
+        防禦力,
+        防禦力加乘,
+        最大血量,
+        血量加乘,
+        最大魔量,
+        魔量加乘,
+        移動速度,
+        生命回復,
+        攻擊速度,
+        暴擊率,
+        暴擊傷害,
+        格擋值,
+        金幣時取量
+    }
+
     public interface IProperty
     {
-        int 取攻擊();
-        int 取攻擊力加乘();
-        int 取防禦力();
-        int 取防禦力加乘();
-        int 取最大血量();
-        int 取血量加乘();
-        int 取最大魔量();
-        int 取魔量加乘();
-        int 取移動速度();
-        int 取生命回復();
-        int 取攻擊速度();
-        int 取爆擊率();
-        int 取爆擊傷害();
-        int 取格檔值();
-        int 取金幣拾取量();
+        void setValue(e狀態名 _eKey ,int _iValue);
+        void setValue(e狀態名 _eKey, float _fValue);
     }
 }

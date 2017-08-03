@@ -1,11 +1,12 @@
 ﻿
 namespace GearSystem
 {
-    public delegate void updateCallback();
+    public delegate void reflashCallback();
     public interface IStateMgr
     {
         bool addGear(IGear _IGear, int _iIndex);
         bool removeGear(int _iIndex);
-        void setUpdateCallback(updateCallback _updateCallback);
+        IProperty getProperty();
+        void setReflashCallback(reflashCallback _reflashCallback);
     }
 }
