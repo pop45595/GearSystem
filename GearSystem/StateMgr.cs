@@ -5,92 +5,133 @@ namespace GearSystem
 {
     public class StateMgr : IStateMgr
     {
-        private IPropertyV2 m_Property = null;
+        private reflashCallback m_Callback = null;
+
+        private IPropertyV2 m_baseProperty = null;
+        private List<IPropertyV2> m_ListProperty = null;
+        private IPropertyV2 m_FinalProperty = null;
+
         private IGear[] m_ArrGear = null;
-        private List<IState> m_ListState = null;
-        private IState m_FirstState = null;
-        private reflashCallback m_updateCallback = null;
+        private int m_iCount = 0;
 
-        public StateMgr(IPropertyV2 _Property , int _iCount)
+        private List<List<IState>> m_ListState = null;
+
+        public StateMgr(int _iCount)
         {
+            m_iCount = _iCount;
             m_ArrGear = new IGear[_iCount];
-            m_ListState = new List<IState>();
-            m_Property = _Property;
+            m_ListState = new List<List<IState>>();
+            m_baseProperty = new PropertyForm();
+            m_FinalProperty = m_baseProperty;
         }
 
-        public bool addGear(IGear _IGear , int _iIndex)
-        {   //Add
-            setStateArray(_IGear.getAllState());
-            m_ArrGear[_iIndex] =_IGear;
-            setAllStateNext();
-            updateProprety();
-            return true;
-        }
-        public bool removeGear(int _iIndex)
-        {   //remove
-            bool bAnswer = false;
-
-            if (m_ArrGear.Length > _iIndex && _iIndex >= 0)
-            {
-                m_ArrGear[_iIndex] = null ;
-                bAnswer = true;
-
-                resetStateArray();
-            }
-            updateProprety();
-            return bAnswer;
-        }
-
-        public void updateProprety()
-        {   //update
-            m_FirstState.changeValue(ref m_Property);
-            if(null!= m_updateCallback)
-            {
-                m_updateCallback();
-            }
-        }
-
-        public void setReflashCallback(reflashCallback _updateCallback)
+        public bool addGear(IGear _IGear, int _iIndex)
         {
-            m_updateCallback = _updateCallback;
-        }
-
-        //------------------------------------------------------------------------------------
-        private void setStateArray(IState[] _ArrState)
-        {   //State add ListState
-            if (null != _ArrState)
+            if (checkIndex(_iIndex))
             {
-                for (int i = 0; i < _ArrState.Length; ++i)
-                {
-                    _ArrState[i].setUpdateCallBack(updateProprety);
-                    m_ListState.Add(_ArrState[i]);
-                }
+                m_ArrGear[_iIndex] = _IGear;
+                addState(_IGear);
+                reflashProperty();
+                return true;
+            }else
+            {
+                return false;
             }
         }
 
-        private void resetStateArray()
-        {   //reset
-            m_ListState.Clear();
-
-            for (int i = 0; i< m_ArrGear.Length; ++i)
+        public bool removeGear(int _iIndex)
+        {
+            if (checkIndex(_iIndex))
             {
-                setStateArray(m_ArrGear[i].getAllState());
+                m_ArrGear[_iIndex] = null;
+                reflashAllGear();
+                reflashProperty();
+                return true;
             }
-            setAllStateNext();
-        }
-
-        private void setAllStateNext()
-        {   //set state next and get first state
-            for (int i = 0; i < m_ListState.Count-1; ++i)
+            else
             {
-                m_ListState[i].setNextState(m_ListState[i+1]);
+                return false;
             }
-            m_FirstState = m_ListState[0];
         }
 
         public IProperty getProperty()
         {
-            throw new NotImplementedException();
+            return m_FinalProperty;
         }
+
+        public void setReflashCallback(reflashCallback _reflashCallback)
+        {
+            m_Callback = _reflashCallback;
+        }
+//--------------------------------------------------------------------------------
+        private bool checkIndex(int _iIndex)
+        {
+            return (_iIndex >= 0 && m_iCount > _iIndex);
+        }
+
+        private void reflashProperty()
+        {
+            IPropertyV2 newProperty = m_baseProperty.copy();
+
+            for (int i = 0; i < m_ListState.Count; ++i)
+            {
+                for (int j = 0; j< m_ListState[i].Count; ++j)
+                {
+                    m_ListState[i][j].changeValue(ref newProperty);
+                }
+
+                if (m_ListProperty.Count > i)
+                {
+                    m_ListProperty[i] = newProperty;
+                }
+                else
+                {
+                    m_ListProperty.Add(newProperty);
+                }
+
+                if( (i+1) != m_ListState.Count) newProperty = newProperty.copy();
+            }
+            m_FinalProperty = newProperty;
+            if (m_Callback != null) m_Callback();
+        }
+
+        private void addState(IGear _Gear)
+        {
+            IState[] ArrState = _Gear.getAllState();
+            if (ArrState != null)
+            {
+                int iLevel = 0;
+                for (int i = 0; i< ArrState.Length; ++i)
+                {
+                    iLevel = ArrState[i].getLevel();
+                    if (iLevel >= 0)
+                    {
+                        if (iLevel >= m_ListState.Count)
+                        {
+                            do
+                            {
+                                m_ListState.Add(new List<IState>());
+                            }
+                            while (m_ListState.Count == iLevel);
+                        }
+                        
+                        m_ListState[iLevel].Add(ArrState[i]);
+                    }
+                }
+            }
+        }
+
+        private void reflashAllGear()
+        {
+            m_ListState.Clear();
+            for (int i = 0; i<m_ArrGear.Length; ++i)
+            {
+                if (m_ArrGear[i] != null)
+                {
+                    addState(m_ArrGear[i]);
+                }
+            }
+        }
+
     }
 }
