@@ -29,7 +29,7 @@ class Program
             Console.WriteLine("格檔值 : " + lolProperty.取格檔值());
             Console.WriteLine("金幣拾取量 : " + lolProperty.取金幣拾取量());
         });
-        lolChractor.addGear(GearFactory.createFactory(eGearType.小刀,new IState[] {new State(State.e狀態效果.基礎攻擊,15)}));
+        lolChractor.addGear(GearCreator.Create(1));
 
     }
 }
