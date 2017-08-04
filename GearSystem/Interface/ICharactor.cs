@@ -1,11 +1,10 @@
 ﻿namespace GearSystem
 {
-    
-    interface ICharactor
+    interface ICharactor<GEARINFO>
     {
-        bool addGear(IGear _addGear);
-        bool removeGear(IGear _delGear);
+        bool addGear(GEARINFO _addGearInfo);
+        bool removeGear(GEARINFO _delGearInfo);
         IProperty getProperty();
-        void setPropertyUpdateCallBack(updateCallback _callBack);
+        void setPropertyUpdateCallBack(reflashCallback _callBack);
     }
 }
