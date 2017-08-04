@@ -22,6 +22,7 @@ namespace GearSystem
             m_ArrGear = new IGear[_iCount];
             m_ListState = new List<List<IState>>();
             m_baseProperty = new PropertyForm();
+            m_ListProperty = new List<IPropertyV2>();
             m_FinalProperty = m_baseProperty;
         }
 
