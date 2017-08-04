@@ -5,7 +5,7 @@ namespace GearSystem
 {
     public class PropertyForm : IPropertyV2
     {
-       
+
         private Hashtable m_Hashtable = null;
 
         public PropertyForm()
@@ -17,21 +17,9 @@ namespace GearSystem
         {
             PropertyForm newPropertyFrom = new PropertyForm();
 
-            int iValue = 0;
-            float fValue = 0.0f;
-
             foreach (DictionaryEntry value in m_Hashtable)
             {
-                iValue = getValueToInt((e狀態名)value.Key);
-                fValue = getValueToFloat((e狀態名)value.Key);
-
-                if (iValue == fValue)
-                {
-                    newPropertyFrom.setValue((e狀態名)value.Key, (int)value.Value);
-                }else
-                {
-                    newPropertyFrom.setValue((e狀態名)value.Key, (float)value.Value);
-                }
+                newPropertyFrom.setValue((e狀態名)value.Key, value.Value);
             }
 
             return newPropertyFrom;
@@ -88,6 +76,18 @@ namespace GearSystem
         public void reset()
         {
             m_Hashtable = new Hashtable();
+        }
+
+        public void setValue(e狀態名 _eKey, object _objValue)
+        {
+            if (m_Hashtable.ContainsKey(_eKey))
+            {
+                m_Hashtable[_eKey] = _objValue;
+            }
+            else
+            {
+                m_Hashtable.Add(_eKey, _objValue);
+            }
         }
     }
 }
