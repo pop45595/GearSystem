@@ -14,7 +14,7 @@ class Program
         });
         lolChractor.addGear(new GearInfo(0));
         lolChractor.addGear(new GearInfo(1));
-        Console.ReadLine(); // 暫停，沒寫則會很快關閉程式
+        Console.ReadKey(); // 暫停，沒寫則會很快關閉程式
     }
     private static void showInfo(IProperty _lolProperty) {
         Console.WriteLine("攻擊力 : " + _lolProperty.getValueToFloat(e狀態名.攻擊));

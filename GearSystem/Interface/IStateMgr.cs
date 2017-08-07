@@ -1,5 +1,4 @@
-﻿
-namespace GearSystem
+﻿namespace GearSystem
 {
     public delegate void reflashCallback();
     public interface IStateMgr

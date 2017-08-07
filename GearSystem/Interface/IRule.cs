@@ -1,5 +1,4 @@
-﻿
-namespace GearSystem
+﻿namespace GearSystem
 {
     public interface IRule
     {

@@ -1,5 +1,4 @@
-﻿
-namespace GearSystem
+﻿namespace GearSystem
 {
     public delegate void UpdateStateCallback();
     public interface IState

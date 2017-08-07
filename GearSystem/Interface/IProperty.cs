@@ -1,5 +1,4 @@
-﻿
-namespace GearSystem
+﻿namespace GearSystem
 {
     public enum e狀態名
     {
