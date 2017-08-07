@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 
 namespace GearSystem
 {
@@ -87,6 +88,11 @@ namespace GearSystem
             {
                 m_Hashtable.Add(_eKey, _objValue);
             }
+        }
+
+        public string getAllValue()
+        {
+            throw new NotImplementedException();
         }
     }
 }
