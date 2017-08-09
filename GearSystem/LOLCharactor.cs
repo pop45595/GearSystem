@@ -5,7 +5,6 @@ public class LOLCharactor : ICharactor<GearInfo>
 {
     private IPropertyV2 m_charactorProperty = null;
     private IStateMgr m_stateMgr = null;
-    //private ICreator<IGear> m_GearCreator = null;
     private List<int> m_iListGearIDRecord = null;
     private int m_iMaxGear = 6;
     public LOLCharactor() {
@@ -19,7 +18,7 @@ public class LOLCharactor : ICharactor<GearInfo>
     }
 
     public bool addGear(GearInfo _addGearInfo) {
-        IGear gear = GearCreator.Create(_addGearInfo.m_GearId);
+        IGear gear = SuperMarket.instance.m_gearCreator.create(_addGearInfo.m_GearId);
         if (m_stateMgr.addGear(gear, m_iListGearIDRecord.Count)) {
             int iGearId = _addGearInfo.m_GearId;
             m_iListGearIDRecord.Add(iGearId);

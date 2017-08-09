@@ -4,19 +4,13 @@ namespace GearSystem
 {
     class GearFlyweight : ICreator<IGearV2>
     {
-        private static GearFlyweight m_gearFlyweight = null;
-        private Hashtable m_baseGearhash = new Hashtable();
-        private BaseGearTable m_baseGeartable = new BaseGearTable();
-        private GearFlyweight() { }
-
-        public static IGearV2 Create(int _iId)
-        {
-            if(null == m_gearFlyweight)
-            {
-                m_gearFlyweight = new GearFlyweight();
-            }
-
-            return m_gearFlyweight.create(_iId);
+        private Hashtable m_baseGearhash = null;
+        private BaseGearTable m_baseGeartable = null;
+        private StateFlyweight m_stateFlyweight = null;
+        public GearFlyweight(StateFlyweight _stateFlyweight) {
+            m_baseGearhash = new Hashtable();
+            m_baseGeartable = new BaseGearTable();
+            m_stateFlyweight = _stateFlyweight;
         }
 
         public IGearV2 create(int _iId)
@@ -31,7 +25,7 @@ namespace GearSystem
                 int iStatesLenght = iArrStates.Length;
                 for(int i = 0; i < iStatesLenght; ++i)
                 {
-                    gear.addState(StateFlyweight.Create(i));
+                    gear.addState(m_stateFlyweight.create(i));
                 }
 
                 m_baseGearhash.Add(_iId, gear);

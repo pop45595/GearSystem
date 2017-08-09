@@ -4,19 +4,11 @@ namespace GearSystem
 {
     class StateFlyweight : ICreator<IState>
     {
-        private static StateFlyweight m_stateFlyweight = null;
-        private Hashtable m_baseStatehash = new Hashtable();
-        private BaseStateTable m_baseStatetable = new BaseStateTable();
-        private StateFlyweight() { }
-
-        public static IState Create(int _iId)
-        {
-            if(null == m_stateFlyweight)
-            {
-                m_stateFlyweight = new StateFlyweight();
-            }
-
-            return m_stateFlyweight.create(_iId);
+        private Hashtable m_baseStatehash = null;
+        private BaseStateTable m_baseStatetable = null;
+        public StateFlyweight() {
+            m_baseStatehash = new Hashtable();
+            m_baseStatetable = new BaseStateTable();
         }
 
         public IState create(int _iId)
