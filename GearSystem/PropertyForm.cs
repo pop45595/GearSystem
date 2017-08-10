@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace GearSystem
 {
@@ -90,9 +91,16 @@ namespace GearSystem
             }
         }
 
-        public string getAllValue()
+        public void getAllValue(ref e狀態名[]  _ArrKeys, ref int[] _iArrValue)
         {
-            throw new NotImplementedException();
+            List<e狀態名> ListKey = new List<e狀態名>();
+            List<int> iListValue = new List<int>();
+            foreach (DictionaryEntry property in m_Hashtable) {
+                ListKey.Add((e狀態名)property.Key);
+                iListValue.Add((int)property.Value);
+            }
+            _ArrKeys = ListKey.ToArray();
+            _iArrValue = iListValue.ToArray();
         }
     }
 }
