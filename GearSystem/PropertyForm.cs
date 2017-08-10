@@ -91,16 +91,19 @@ namespace GearSystem
             }
         }
 
-        public void getAllValue(ref e狀態名[]  _ArrKeys, ref int[] _iArrValue)
-        {
+        public void getAllValue(ref e狀態名[]  _ArrKeys, ref float[] _iArrValue){
             List<e狀態名> ListKey = new List<e狀態名>();
-            List<int> iListValue = new List<int>();
+            List<float> fListValue = new List<float>();
             foreach (DictionaryEntry property in m_Hashtable) {
                 ListKey.Add((e狀態名)property.Key);
-                iListValue.Add((int)property.Value);
+                if (property.Value is float) {
+                    fListValue.Add((float)property.Value);
+                } else if (property.Value is int) {
+                    fListValue.Add((float)((int)property.Value));
+                }
             }
             _ArrKeys = ListKey.ToArray();
-            _iArrValue = iListValue.ToArray();
+            _iArrValue = fListValue.ToArray();
         }
     }
 }

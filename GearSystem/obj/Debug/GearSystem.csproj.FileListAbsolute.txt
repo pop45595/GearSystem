@@ -5,3 +5,9 @@ D:\GitHub\GearSystem\GearSystem\bin\Debug\GearSystem.pdb
 D:\GitHub\GearSystem\GearSystem\obj\Debug\GearSystem.csprojResolveAssemblyReference.cache
 D:\GitHub\GearSystem\GearSystem\obj\Debug\GearSystem.exe
 D:\GitHub\GearSystem\GearSystem\obj\Debug\GearSystem.pdb
+D:\網銀\GearSystem\GearSystem\GearSystem\bin\Debug\GearSystem.exe.config
+D:\網銀\GearSystem\GearSystem\GearSystem\bin\Debug\GearSystem.exe
+D:\網銀\GearSystem\GearSystem\GearSystem\bin\Debug\GearSystem.pdb
+D:\網銀\GearSystem\GearSystem\GearSystem\obj\Debug\GearSystem.csprojResolveAssemblyReference.cache
+D:\網銀\GearSystem\GearSystem\GearSystem\obj\Debug\GearSystem.exe
+D:\網銀\GearSystem\GearSystem\GearSystem\obj\Debug\GearSystem.pdb

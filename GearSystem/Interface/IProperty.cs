@@ -23,6 +23,6 @@
     {
         int getValueToInt(e狀態名 _eKey);
         float getValueToFloat(e狀態名 _eKey);
-        void getAllValue(ref e狀態名[] _ArrKeys, ref int[] _iArrValue);
+        void getAllValue(ref e狀態名[] _ArrKeys, ref float[] _fArrValue);
     }
 }
