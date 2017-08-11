@@ -28,5 +28,10 @@ namespace GearSystem
         {
             return m_iLevel;
         }
+
+        public int getID()
+        {
+            return m_iId;
+        }
     }
 }

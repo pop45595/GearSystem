@@ -4,5 +4,6 @@
     {
         bool changeValue(ref IPropertyV2 _Property);
         int getLevel();
+        int getID();
     }
 }

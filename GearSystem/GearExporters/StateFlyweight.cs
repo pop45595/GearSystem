@@ -6,7 +6,8 @@ namespace GearSystem
     {
         private Hashtable m_baseStatehash = null;
         private BaseStateTable m_baseStatetable = null;
-        public StateFlyweight() {
+        public StateFlyweight()
+        {
             m_baseStatehash = new Hashtable();
             m_baseStatetable = new BaseStateTable();
         }
@@ -20,7 +21,7 @@ namespace GearSystem
                 float fValue = (float)iArrStateStruct[1];
                 int iLevel = iArrStateStruct[2];
 
-                IState state = new State(_iId,eStateName, fValue,iLevel);
+                IState state = new State(_iId, eStateName, fValue, iLevel);
                 m_baseStatehash.Add(_iId, state);
             }
 
