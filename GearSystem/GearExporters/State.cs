@@ -28,15 +28,5 @@ namespace GearSystem
         {
             return m_iLevel;
         }
-
-        public void setNextState(IState _state)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void setUpdateCallBack(UpdateStateCallback _updateCallback)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
