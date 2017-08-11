@@ -1,6 +1,8 @@
 ﻿namespace GearSystem
 {
-    interface ISensor{
-        void TriggerSensor();
+    public delegate void OnSensorTrigger();
+    public interface ISensor{
+        void triggerSensor();
+        void addListener(OnSensorTrigger _sensorListener);
     }
 }
