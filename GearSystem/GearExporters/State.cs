@@ -33,5 +33,11 @@ namespace GearSystem
         {
             return m_iId;
         }
+
+        public void updateState(int _iUpdateUnit)
+        {
+            // 查婊 然後變動 m_fValue，尚未實作
+            throw new NotImplementedException();
+        }
     }
 }
