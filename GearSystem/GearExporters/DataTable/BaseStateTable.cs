@@ -4,9 +4,12 @@
     {
         // 欄位結構：
         // {0 狀態名, 1 狀態值, 2層級}
-        // 暫時不做安全機制這樣
         public int[] searchById(int _iId)
         {
+            if(_iId >= i2ArrTable.Length)
+            {
+                return null;
+            }
             return i2ArrTable[_iId];
         }
 
