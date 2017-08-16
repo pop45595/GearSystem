@@ -1,4 +1,4 @@
-﻿namespace GearSystem
+﻿namespace LOLGearSystem
 {
     class BaseGearTable : IRule
     {

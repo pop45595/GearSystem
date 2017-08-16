@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-
-namespace GearSystem
+using GearSystem;
+namespace LOLGearSystem
 {
     class Gear : IGearV2
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-
-namespace GearSystem
+using GearSystem;
+namespace LOLGearSystem
 {
     public class StateMgr : IStateMgr
     {
@@ -8,7 +8,7 @@ namespace GearSystem
 
         private IPropertyV2 m_baseProperty = null;
         private List<IPropertyV2> m_ListProperty = null;
-        private IPropertyV2 m_FinalProperty = null;
+        private GearSystem.IPropertyV2 m_FinalProperty = null;
 
         private IGear[] m_ArrGear = null;
         private int m_iCount = 0;

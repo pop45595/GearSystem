@@ -1,6 +1,6 @@
 ﻿using System;
-
-namespace GearSystem
+using GearSystem;
+namespace LOLGearSystem
 {
     class State : IState
     {

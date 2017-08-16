@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-
-namespace GearSystem
+using GearSystem;
+namespace LOLGearSystem
 {
     public class PropertyForm : IPropertyV2
     {

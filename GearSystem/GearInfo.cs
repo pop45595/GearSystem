@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 
-namespace GearSystem {
+namespace LOLGearSystem
+{
     public class GearInfo {
         public int m_GearId=0;
         public List<int> m_iListAdditionalState = new List<int>();

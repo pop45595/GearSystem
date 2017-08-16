@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-
-namespace GearSystem
+using GearSystem;
+namespace LOLGearSystem
 {
     class StateFlyweight : ICreator<IState>
     {
