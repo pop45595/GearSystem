@@ -5,11 +5,11 @@ namespace LOLGearSystem
     class State : IState
     {
         private int m_iId = -1;
-        private e狀態名 m_eStateName = e狀態名.攻擊;
+        private PropertyRule.e狀態名 m_eStateName = PropertyRule.e狀態名.攻擊;
         private float m_fValue = -1;
         private int m_iLevel = -1;
 
-        public State(int _iId, e狀態名 _eStateName, float _iValue, int _iLevel)
+        public State(int _iId, PropertyRule.e狀態名 _eStateName, float _iValue, int _iLevel)
         {
             m_iId = _iId;
             m_eStateName = _eStateName;
@@ -19,8 +19,8 @@ namespace LOLGearSystem
 
         public bool changeValue(ref IPropertyV2 _Property)
         {
-            float fOrginV = _Property.getValueToFloat(m_eStateName);
-            _Property.setValue(m_eStateName, m_fValue + fOrginV);
+            float fOrginV = _Property.getValueToFloat((int)m_eStateName);
+            _Property.setValue((int)m_eStateName, m_fValue + fOrginV);
             return true;
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace LOLGearSystem
 {
-    class GearTable : IRule
+    class GearTable : GearSystem.IRule
     {
         // 欄位結構：
         // {0 基礎武器代號, 1 狀態, 2狀態, 3狀態, .....}

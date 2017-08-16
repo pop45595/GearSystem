@@ -17,7 +17,7 @@ namespace LOLGearSystem
             if (!m_baseStatehash.ContainsKey(_iId))
             {
                 int[] iArrStateStruct = m_baseStatetable.searchById(_iId);
-                e狀態名 eStateName = (e狀態名)iArrStateStruct[0];
+                PropertyRule.e狀態名 eStateName = (PropertyRule.e狀態名)iArrStateStruct[0];
                 float fValue = (float)iArrStateStruct[1];
                 int iLevel = iArrStateStruct[2];
 

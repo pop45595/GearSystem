@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using GearSystem;
 namespace LOLGearSystem
@@ -20,17 +19,17 @@ namespace LOLGearSystem
 
             foreach (DictionaryEntry value in m_Hashtable)
             {
-                newPropertyFrom.setValue((e狀態名)value.Key, value.Value);
+                newPropertyFrom.setValue((int)value.Key, value.Value);
             }
 
             return newPropertyFrom;
         }
 
-        public int getValueToInt(e狀態名 _eKey)
+        public int getValueToInt(int _iKey)
         {
-            if (m_Hashtable.ContainsKey(_eKey))
+            if (m_Hashtable.ContainsKey(_iKey))
             {
-                return (int)m_Hashtable[_eKey];
+                return (int)m_Hashtable[_iKey];
             }
             else
             {
@@ -38,7 +37,7 @@ namespace LOLGearSystem
             }
         }
 
-        public float getValueToFloat(e狀態名 _eKey)
+        public float getValueToFloat(int _eKey)
         {
             if (m_Hashtable.ContainsKey(_eKey))
             {
@@ -50,7 +49,7 @@ namespace LOLGearSystem
             }
         }
 
-        public void setValue(e狀態名 _eKey, int _iValue)
+        public void setValue(int _eKey, int _iValue)
         {
             if (m_Hashtable.ContainsKey(_eKey))
             {
@@ -62,7 +61,7 @@ namespace LOLGearSystem
             }
         }
 
-        public void setValue(e狀態名 _eKey, float _fValue)
+        public void setValue(int _eKey, float _fValue)
         {
             if (m_Hashtable.ContainsKey(_eKey))
             {
@@ -79,7 +78,7 @@ namespace LOLGearSystem
             m_Hashtable = new Hashtable();
         }
 
-        public void setValue(e狀態名 _eKey, object _objValue)
+        public void setValue(int _eKey, object _objValue)
         {
             if (m_Hashtable.ContainsKey(_eKey))
             {
@@ -91,11 +90,11 @@ namespace LOLGearSystem
             }
         }
 
-        public void getAllValue(ref e狀態名[]  _ArrKeys, ref float[] _iArrValue){
-            List<e狀態名> ListKey = new List<e狀態名>();
+        public void getAllValue(ref int[]  _ArrKeys, ref float[] _iArrValue){
+            List<int> ListKey = new List<int>();
             List<float> fListValue = new List<float>();
             foreach (DictionaryEntry property in m_Hashtable) {
-                ListKey.Add((e狀態名)property.Key);
+                ListKey.Add((int)property.Key);
                 if (property.Value is float) {
                     fListValue.Add((float)property.Value);
                 } else if (property.Value is int) {

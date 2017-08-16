@@ -67,6 +67,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyForm.cs" />
+    <Compile Include="PropertyRule.cs" />
     <Compile Include="StateMgr.cs" />
     <Compile Include="SuperMarket.cs" />
   </ItemGroup>

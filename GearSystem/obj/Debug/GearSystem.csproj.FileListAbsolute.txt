@@ -11,3 +11,9 @@ D:\網銀\GearSystem\GearSystem\GearSystem\bin\Debug\GearSystem.pdb
 D:\網銀\GearSystem\GearSystem\GearSystem\obj\Debug\GearSystem.csprojResolveAssemblyReference.cache
 D:\網銀\GearSystem\GearSystem\GearSystem\obj\Debug\GearSystem.exe
 D:\網銀\GearSystem\GearSystem\GearSystem\obj\Debug\GearSystem.pdb
+D:\WaninHomeWork\GearSystem\bin\Debug\GearSystem.exe.config
+D:\WaninHomeWork\GearSystem\obj\Debug\GearSystem.exe
+D:\WaninHomeWork\GearSystem\obj\Debug\GearSystem.pdb
+D:\WaninHomeWork\GearSystem\bin\Debug\GearSystem.exe
+D:\WaninHomeWork\GearSystem\bin\Debug\GearSystem.pdb
+D:\WaninHomeWork\GearSystem\obj\Debug\GearSystem.csprojResolveAssemblyReference.cache
