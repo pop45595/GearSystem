@@ -4,14 +4,12 @@ namespace LOLGearSystem
 {
     public class LOLCharactor : ICharactor<GearInfo>
     {
-        private IPropertyV2 m_charactorProperty = null;
         private IStateMgr m_stateMgr = null;
         private List<int> m_iListGearIDRecord = null;
         private int m_iMaxGear = 6;
         public LOLCharactor()
         {
             m_iListGearIDRecord = new List<int>();
-            m_charactorProperty = new PropertyForm();
             m_stateMgr = new StateMgr(m_iMaxGear);
         }
         public IProperty getProperty()
@@ -19,20 +17,14 @@ namespace LOLGearSystem
             return m_stateMgr.getProperty();
         }
 
-        public bool addGear(GearInfo _addGearInfo)
-        {
+        public bool addGear(GearInfo _addGearInfo){
             IGear gear = SuperMarket.instance.m_gearCreator.create(_addGearInfo.m_GearId);
-            if (m_stateMgr.addGear(gear, m_iListGearIDRecord.Count))
-            {
+            if (m_stateMgr.addGear(gear, m_iListGearIDRecord.Count)){
                 int iGearId = _addGearInfo.m_GearId;
                 m_iListGearIDRecord.Add(iGearId);
                 return true;
             }
-            else
-            {
-                return false;
-            }
-
+            return false;
         }
 
         public bool removeGear(GearInfo _delGearInfo)

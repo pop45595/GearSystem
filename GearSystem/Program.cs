@@ -12,10 +12,45 @@ class Program
             lolProperty = lolChractor.getProperty();
             showInfo(lolProperty);
         });
-        lolChractor.addGear(new GearInfo(0));
-        lolChractor.addGear(new GearInfo(1));
+        bool bAddPass = true;
+        bool bDelPass = true;
+        string strInput = null;
+        string[] strAryInput = null;
 
-        Console.ReadKey(); // 暫停，沒寫則會很快關閉程式
+        while (true) {
+            strInput =  Console.ReadLine();
+            strAryInput = strInput.Split(' ');
+
+            if (strAryInput.Length >= 2) {
+                int iGrarId = 0;
+                if (int.TryParse(strAryInput[1], out iGrarId)) {
+                    if (strAryInput[0].ToLower() == "add") {
+                        bAddPass = lolChractor.addGear(new GearInfo(iGrarId));
+                    } else if (strAryInput[0].ToLower() == "del") {
+                        bAddPass = lolChractor.removeGear(new GearInfo(iGrarId));
+                    } else {
+                        Console.WriteLine("指令錯誤");
+                    }
+                }  else {
+                    Console.WriteLine("指令錯誤");
+                }
+            } else if (strAryInput.Length > 0) {
+                if (strAryInput[0].ToLower() == "show") {
+                    showInfo(lolProperty);
+                }
+            } else {
+                Console.WriteLine("指令錯誤");
+            }
+            if (!bAddPass) {
+                Console.WriteLine("裝備物品失敗");
+                bAddPass = true;
+            }
+            if (!bDelPass) {
+                Console.WriteLine("卸除物品失敗");
+                bDelPass = true;
+            }
+        }
+
     }
     private static void showInfo(IProperty _lolProperty) {
         int[] iAry狀態名 = new int[0];
@@ -24,6 +59,7 @@ class Program
         for(int i = 0;i< fAryValue.Length && i< iAry狀態名.Length; ++i) {
             Console.WriteLine(((PropertyRule.e狀態名)iAry狀態名[i]).ToString()+" : "+ fAryValue[i].ToString("F2"));
         }
+
         Console.WriteLine("");
     }
 }
