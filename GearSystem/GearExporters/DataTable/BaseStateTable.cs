@@ -19,6 +19,8 @@ namespace LOLGearSystem
             new int[]{(int)PropertyRule.e狀態名.生命,        300,   0},        //300生命
             new int[]{(int)PropertyRule.e狀態名.魔力,        300,   0},        //300魔力
             new int[]{(int)PropertyRule.e狀態名.魔法攻擊,     60,   0},        //60魔法攻擊
+            new int[]{(int)PropertyRule.e狀態名.魔法攻擊,     20,   0},        //20魔法攻擊
+            new int[]{(int)PropertyRule.e狀態名.魔力,        -50,   0}         //-50魔力
         };
     }
 }

@@ -13,6 +13,7 @@ class Program
             showInfo(lolProperty);
         });
         lolChractor.addGear(new GearInfo(0));
+        lolChractor.addGear(new GearInfo(1));
 
         Console.ReadKey(); // 暫停，沒寫則會很快關閉程式
     }

@@ -17,6 +17,7 @@
         private int[][] i2ArrTable =
         {
             new int[]{0,0,1,2},    //時光之杖
+            new int[]{0,1,2,3,4}       //大天使之杖
         };
     }
 }
