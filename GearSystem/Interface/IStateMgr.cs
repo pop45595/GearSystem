@@ -7,5 +7,6 @@
         bool removeGear(int _iIndex);
         IProperty getProperty();
         void setReflashCallback(reflashCallback _reflashCallback);
+        void updateState(int _iGearId,int _iStateId,int _iUpdateUnit);
     }
 }
