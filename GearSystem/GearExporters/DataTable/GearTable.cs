@@ -16,8 +16,8 @@
         // 之後會做成Excel，應該會比較好懂
         private int[][] i2ArrTable =
         {
-            new int[]{0,  },             //基礎小刀
-            new int[]{0, 1},             //鋒利的小刀
+            new int[]{0,0,1,2},    //時光之杖
+            new int[]{0,1,2,3,4}       //大天使之杖
         };
     }
 }

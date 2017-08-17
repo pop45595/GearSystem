@@ -15,7 +15,7 @@
 
         private int[][] i2ArrTable =
         {
-            new int[]{0},       //小刀
+            new int[]{},       //之杖
         };
     }
 }

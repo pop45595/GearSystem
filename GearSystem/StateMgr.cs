@@ -8,7 +8,7 @@ namespace LOLGearSystem
 
         private IPropertyV2 m_baseProperty = null;
         private List<IPropertyV2> m_ListProperty = null;
-        private GearSystem.IPropertyV2 m_FinalProperty = null;
+        private IPropertyV2 m_FinalProperty = null;
 
         private IGear[] m_ArrGear = null;
         private int m_iCount = 0;
@@ -29,6 +29,7 @@ namespace LOLGearSystem
         {
             if (checkIndex(_iIndex))
             {
+                _IGear.setIPropertyV2(m_FinalProperty);
                 m_ArrGear[_iIndex] = _IGear;
                 addState(_IGear);
                 reflashProperty();

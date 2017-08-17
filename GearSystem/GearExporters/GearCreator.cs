@@ -22,7 +22,7 @@ namespace LOLGearSystem
             int[] iArrStructs = m_gearTable.searchById(_iId);
             int iStatesLenght = iArrStructs.Length;
 
-            // 第0位 是基礎武器代號，之後都是各式狀態代號
+            // 第0位 是基礎武器代號，0位後都是狀態代號
             gear.setGear(m_gearFlyweight.create(iArrStructs[0]));
             for (int i = 1; i < iStatesLenght; ++i)
             {
