@@ -5,7 +5,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        ICharactor<GearInfo> lolChractor = new LOLCharactor();
+        ICharactor<GearInfo, StateUpdateInfo> lolChractor = new LOLCharactor();
         IProperty lolProperty = lolChractor.getProperty();
         showInfo(lolProperty);
         lolChractor.setPropertyUpdateCallBack(delegate {
@@ -16,6 +16,7 @@ class Program
         bool bDelPass = true;
         string strInput = null;
         string[] strAryInput = null;
+        int iTime = 0;
 
         while (true) {
             strInput =  Console.ReadLine();
@@ -27,7 +28,17 @@ class Program
                     if (strAryInput[0].ToLower() == "add") {
                         bAddPass = lolChractor.addGear(new GearInfo(iGrarId));
                     } else if (strAryInput[0].ToLower() == "del") {
-                        bAddPass = lolChractor.removeGear(new GearInfo(iGrarId));
+                        bDelPass = lolChractor.removeGear(new GearInfo(iGrarId));
+                    } else if (strAryInput[0].ToLower() == "update") {
+                        if (iGrarId == 0) { //時光之仗更新
+                            lolChractor.updateState(
+                                new StateUpdateInfo[] {
+                                    new StateUpdateInfo(iGrarId, (int)PropertyRule.e狀態名.生命, iTime),
+                                    new StateUpdateInfo(iGrarId, (int)PropertyRule.e狀態名.魔法攻擊, iTime)
+                                }
+                            );
+                            ++iTime;
+                        }
                     } else {
                         Console.WriteLine("指令錯誤");
                     }

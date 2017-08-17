@@ -69,6 +69,7 @@
     <Compile Include="PropertyForm.cs" />
     <Compile Include="PropertyRule.cs" />
     <Compile Include="StateMgr.cs" />
+    <Compile Include="StateUpdateInfo.cs" />
     <Compile Include="SuperMarket.cs" />
   </ItemGroup>
   <ItemGroup>

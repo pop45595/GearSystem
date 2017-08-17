@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using GearSystem;
 namespace LOLGearSystem
 {
@@ -134,5 +135,8 @@ namespace LOLGearSystem
             }
         }
 
+        public void updateState(int _iGearId, int _iStateId, int _iUpdateUnit) {
+            reflashProperty();
+        }
     }
 }

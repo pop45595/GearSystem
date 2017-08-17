@@ -40,5 +40,9 @@ namespace LOLGearSystem
         {
             return m_iId;
         }
+
+        public void updateState(int _iUpdateUnit) {
+            
+        }
     }
 }

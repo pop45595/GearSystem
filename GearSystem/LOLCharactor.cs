@@ -2,11 +2,11 @@
 using GearSystem;
 namespace LOLGearSystem
 {
-    public class LOLCharactor : ICharactor<GearInfo>
-    {
+    public class LOLCharactor : ICharactor<GearInfo, StateUpdateInfo> {
         private IStateMgr m_stateMgr = null;
         private List<int> m_iListGearIDRecord = null;
         private int m_iMaxGear = 6;
+
         public LOLCharactor()
         {
             m_iListGearIDRecord = new List<int>();
@@ -43,7 +43,7 @@ namespace LOLGearSystem
         private int? getGearPosition(int _delGearID)
         {
             int iTargetID = _delGearID;
-            for (int i = 0; i < m_iListGearIDRecord.Count; ++i)
+            for (int i = m_iListGearIDRecord.Count-1; i >= 0 ; --i)
             {
                 if (m_iListGearIDRecord[i] == iTargetID)
                 {
@@ -56,7 +56,15 @@ namespace LOLGearSystem
         {
             m_stateMgr.setReflashCallback(_callBack);
         }
-
+        public void updateState(StateUpdateInfo[] _stateUpdateInfo) {
+            if (_stateUpdateInfo != null) {
+                for (int i = 0; i < _stateUpdateInfo.Length; ++i) {
+                    if (null != _stateUpdateInfo[i]) {
+                        m_stateMgr.updateState(_stateUpdateInfo[i].m_iGearId, _stateUpdateInfo[i].m_iStateId, _stateUpdateInfo[i].m_iUpdateUnit);
+                    }
+                }
+            }
+        }
     }
 }
 
