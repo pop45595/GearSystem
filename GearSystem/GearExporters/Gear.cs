@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using GearSystem;
 namespace LOLGearSystem
 {
@@ -13,7 +14,6 @@ namespace LOLGearSystem
         {
             m_iGearID = _iGearID;
             m_listState = new List<IState>();
-            m_property = new PropertyForm();
         }
 
         public IState[] getAllState()
@@ -54,6 +54,17 @@ namespace LOLGearSystem
             {
                 return false;
             }           
+        }
+
+        public void updateState(int _iInfoID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool setIPropertyV2(IPropertyV2 _PropertyV2)
+        {
+            m_property = _PropertyV2;
+            return true;
         }
     }
 }

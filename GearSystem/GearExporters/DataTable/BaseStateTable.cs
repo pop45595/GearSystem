@@ -15,9 +15,10 @@ namespace LOLGearSystem
         }
 
         private int[][] i2ArrTable =
-        {
-            new int[]{(int)PropertyRule.e狀態名.攻擊,        100,   0},    //基礎攻擊
-            new int[]{(int)PropertyRule.e狀態名.攻擊力加乘,    5,   1},    //鋒利的
+        {          
+            new int[]{(int)PropertyRule.e狀態名.生命,        300,   0},        //300生命
+            new int[]{(int)PropertyRule.e狀態名.魔力,        300,   0},        //300魔力
+            new int[]{(int)PropertyRule.e狀態名.魔法攻擊,     60,   0},        //60魔法攻擊
         };
     }
 }
