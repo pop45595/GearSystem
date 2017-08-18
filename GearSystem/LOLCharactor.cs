@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using GearSystem;
 namespace LOLGearSystem
 {
@@ -29,7 +30,7 @@ namespace LOLGearSystem
 
         public bool removeGear(GearInfo _delGearInfo)
         {
-            int? iGearPosition = getGearPosition(_delGearInfo.m_GearId);
+            int? iGearPosition = getLastGearPosition(_delGearInfo.m_GearId);
             if (iGearPosition.HasValue)
             {
                 if (m_stateMgr.removeGear(iGearPosition.Value))
@@ -40,30 +41,44 @@ namespace LOLGearSystem
             }
             return false;
         }
-        private int? getGearPosition(int _delGearID)
+        private int? getGearPosition(int _delGearID, int _iIndexOfSameGear = 0)
         {
             int iTargetID = _delGearID;
+            int iNumOfThisGear = 0;
             for (int i = m_iListGearIDRecord.Count-1; i >= 0 ; --i)
             {
                 if (m_iListGearIDRecord[i] == iTargetID)
                 {
+                    if (iNumOfThisGear == _iIndexOfSameGear) {
+                        return i;
+                    }
+                    ++iNumOfThisGear;
+                }
+            }
+            return null;
+        }
+        private int? getLastGearPosition(int _delGearID) {
+            int iTargetID = _delGearID;
+            for (int i = m_iListGearIDRecord.Count - 1; i >= 0; --i) {
+                if (m_iListGearIDRecord[i] == iTargetID) {
                     return i;
                 }
             }
             return null;
         }
-        public void setPropertyUpdateCallBack(reflashCallback _callBack)
-        {
-            m_stateMgr.setReflashCallback(_callBack);
-        }
         public void updateState(StateUpdateInfo[] _stateUpdateInfo) {
             if (_stateUpdateInfo != null) {
                 for (int i = 0; i < _stateUpdateInfo.Length; ++i) {
-                    if (null != _stateUpdateInfo[i]) {
-                        m_stateMgr.updateState(_stateUpdateInfo[i].m_iGearId, _stateUpdateInfo[i].m_iStateId, _stateUpdateInfo[i].m_iUpdateUnit);
+                    int? iGearPosition = getGearPosition(_stateUpdateInfo[i].m_iGearId, _stateUpdateInfo[i].m_iIndexOfSameGear);
+                    if (null != _stateUpdateInfo[i] && iGearPosition.HasValue) {
+                        m_stateMgr.updateState(iGearPosition.Value, _stateUpdateInfo[i].m_iStateId, _stateUpdateInfo[i].m_iUpdateUnit);
                     }
                 }
             }
+        }
+
+        public void setPropertyUpdateCallBack(reflashCallback _callBack) {
+            m_stateMgr.setReflashCallback(_callBack);
         }
     }
 }

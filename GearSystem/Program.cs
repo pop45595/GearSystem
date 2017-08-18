@@ -16,7 +16,6 @@ class Program
         bool bDelPass = true;
         string strInput = null;
         string[] strAryInput = null;
-        int iTime = 0;
 
         while (true) {
             strInput =  Console.ReadLine();
@@ -33,11 +32,10 @@ class Program
                         if (iGrarId == 0) { //時光之仗更新
                             lolChractor.updateState(
                                 new StateUpdateInfo[] {
-                                    new StateUpdateInfo(iGrarId, (int)PropertyRule.e狀態名.生命, iTime),
-                                    new StateUpdateInfo(iGrarId, (int)PropertyRule.e狀態名.魔法攻擊, iTime)
+                                    new StateUpdateInfo(iGrarId, (int)PropertyRule.e狀態名.生命, 1),
+                                    new StateUpdateInfo(iGrarId, (int)PropertyRule.e狀態名.魔法攻擊, 1)
                                 }
                             );
-                            ++iTime;
                         }
                     } else {
                         Console.WriteLine("指令錯誤");
