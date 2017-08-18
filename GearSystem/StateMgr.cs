@@ -76,6 +76,7 @@ namespace LOLGearSystem
                     if(ArrState[i].getID() == _iStateId)
                     {
                         ArrState[i].updateState(_iUpdateUnit);
+                        break;
                     }
                 }
             }

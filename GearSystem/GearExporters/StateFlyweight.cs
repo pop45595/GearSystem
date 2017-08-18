@@ -18,10 +18,12 @@ namespace LOLGearSystem
             {
                 int[] iArrStateStruct = m_baseStatetable.searchById(_iId);
                 PropertyRule.e狀態名 eStateName = (PropertyRule.e狀態名)iArrStateStruct[0];
-                float fValue = (float)iArrStateStruct[1];
-                int iLevel = iArrStateStruct[2];
+                int iLevel = iArrStateStruct[1];
+                float fValue = (float)iArrStateStruct[2];
+                float fDValue = (float)iArrStateStruct[3];
 
-                IState state = new State(_iId, eStateName, fValue, iLevel);
+
+                IState state = new State(_iId, eStateName, iLevel, fValue, fDValue);
                 m_baseStatehash.Add(_iId, state);
             }
 
