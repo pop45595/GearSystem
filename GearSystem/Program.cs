@@ -16,6 +16,11 @@ class Program
         bool bDelPass = true;
         string strInput = null;
         string[] strAryInput = null;
+        Console.WriteLine("說明 :");
+        Console.WriteLine("加入物品 add [id] ( ex.add 0 )");
+        Console.WriteLine("刪除物品 del [id] ( ex.del 0 )");
+        Console.WriteLine("更新物品 update [id] ( ex.update 0 ) ###測試程式只能更新第一把時光之杖");
+        Console.WriteLine("顯示狀態 show ( ex.show )");
 
         while (true) {
             strInput =  Console.ReadLine();
@@ -66,11 +71,14 @@ class Program
         int[] iAry狀態名 = new int[0];
         float[] fAryValue = new float[0];
         _lolProperty.getAllValue(ref iAry狀態名, ref fAryValue);
-        for(int i = 0;i< fAryValue.Length && i< iAry狀態名.Length; ++i) {
-            Console.WriteLine(((PropertyRule.e狀態名)iAry狀態名[i]).ToString()+" : "+ fAryValue[i].ToString("F2"));
+        if (iAry狀態名.Length > 0 || fAryValue.Length > 0) {
+            for (int i = 0; i < fAryValue.Length && i < iAry狀態名.Length; ++i) {
+                Console.WriteLine(((PropertyRule.e狀態名)iAry狀態名[i]).ToString() + " : " + fAryValue[i].ToString("F2"));
+            }
+            Console.WriteLine("");
+        } else {
+            Console.WriteLine("無狀態被改動");
         }
-
-        Console.WriteLine("");
     }
 }
 
