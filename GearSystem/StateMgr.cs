@@ -65,7 +65,23 @@ namespace LOLGearSystem
         {
             m_Callback = _reflashCallback;
         }
-//--------------------------------------------------------------------------------
+
+        public void updateState(int _iIndex, int _iStateId, int _iUpdateUnit)
+        {
+            if (checkIndex(_iIndex) && m_ArrGear[_iIndex] != null)
+            {
+                IState[] ArrState = m_ArrGear[_iIndex].getAllState();
+                for (int i = 0; i < ArrState.Length; ++i)
+                {
+                    if(ArrState[i].getID() == _iStateId)
+                    {
+                        ArrState[i].updateState(_iUpdateUnit);
+                    }
+                }
+            }
+            reflashProperty();
+        }
+        //--------------------------------------------------------------------------------
         private bool checkIndex(int _iIndex)
         {
             return (_iIndex >= 0 && m_iCount > _iIndex);
@@ -135,8 +151,6 @@ namespace LOLGearSystem
             }
         }
 
-        public void updateState(int _iGearId, int _iStateId, int _iUpdateUnit) {
-            reflashProperty();
-        }
+       
     }
 }
